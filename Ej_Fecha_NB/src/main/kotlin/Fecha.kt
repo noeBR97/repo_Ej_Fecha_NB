@@ -9,7 +9,8 @@ class Fecha(private val dia: Int, private val mes: Int, private val a: Int) {
         if (mes < 1 || mes > 12) return false
 
         // determinamos la cantidad de días del mes:
-        return diadelMes()
+        val diaMes = diadelMes()
+        return diaMes
     } // … más métodos
 
     private fun diadelMes(): Boolean {
