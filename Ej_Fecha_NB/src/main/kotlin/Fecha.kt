@@ -1,6 +1,6 @@
 package org.example
 
-class Fecha(private val dia: Int, private val mes: Int, private val a: Int) {
+class Fecha(private val dia: Int, private val mes: Int, private val anio: Int) {
 
 
     fun valida(): Boolean {
@@ -18,8 +18,10 @@ class Fecha(private val dia: Int, private val mes: Int, private val a: Int) {
         when (mes) {
             1, 3, 5, 7, 8, 10, 12 -> diasMes = 31
             4, 6, 9, 11 -> diasMes = 30
-            2 -> diasMes = if (a % 400 == 0 || a % 4 == 0 && a % 100 != 0) 29 else 28
+            2 -> diasMes = if (esBisiesto()) 29 else 28
         }
         return if (dia > diasMes) false else true
     }
+
+    private fun esBisiesto() = anio % 400 == 0 || anio % 4 == 0 && anio % 100 != 0
 }
